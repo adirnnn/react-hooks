@@ -9,14 +9,19 @@ Implementación de la lógica central del timer.
 - Visualización de tiempo en formato `MM:SS`.
 - Funcionalidad de Inicio, Pausa y Reinicio.
 - Uso de `useRef` para la gestión eficiente del intervalo.
-- **Screenshot:** `screenshots/nivel1.jpg`
+
+**Vista Previa:**
+![Nivel 1](screenshots/nivel1.jpg)
 
 ### Nivel 2: Modos y Sesiones
 Extensión de la lógica para soportar ciclos de trabajo y descanso.
 - Alternancia automática entre modo **Trabajo** (25 min) y **Descanso** (5 min).
 - Historial de sesiones completadas con registro de hora.
 - Reinicio total del sistema (tiempo, modo e historial).
-- **Screenshots:** `screenshots/level2wrk.jpg` (Trabajo), `screenshots/level2rest.jpg` (Descanso)
+
+**Vista Previa:**
+![Nivel 2 Trabajo](screenshots/level2wrk.jpg)
+![Nivel 2 Descanso](screenshots/level2rest.jpg)
 
 ### Nivel 3: Personalización y Estadísticas
 Nivel avanzado con control total del usuario y retroalimentación visual.
@@ -25,7 +30,10 @@ Nivel avanzado con control total del usuario y retroalimentación visual.
 - **Estadísticas acumuladas:** Total de sesiones y tiempo total de enfoque.
 - **Sesiones Parciales:** Botón para guardar el progreso actual sin interrumpir el timer.
 - Alerta sonora al finalizar cada ciclo.
-- **Screenshots:** `screenshots/lvl3pt1.jpg`, `screenshots/lvl3pt2.jpg`
+
+**Vista Previa:**
+![Nivel 3 Parte 1](screenshots/lvl3pt1.jpg)
+![Nivel 3 Parte 2](screenshots/lvl3pt2.jpg)
 
 ---
 
