@@ -20,6 +20,10 @@ body {
   background-color: var(--bg-main);
   background-image: radial-gradient(circle at top right, #0d1b1e, #0b1315);
   color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .container {
@@ -30,6 +34,7 @@ body {
   min-height: 100vh;
   gap: 24px;
   padding: 20px;
+  width: 100%;
 }
 
 .level-tabs {
@@ -99,20 +104,6 @@ body {
   z-index: 1;
 }
 
-/* Level 2 specifics */
-.mode-indicator {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  letter-spacing: 0.5px;
-  transition: color 0.3s ease;
-  position: relative;
-  z-index: 1;
-}
-
-.mode-indicator.work { color: var(--accent); }
-.mode-indicator.break { color: #4fc3f7; }
-
 .timer-circle {
   width: 200px;
   height: 200px;
@@ -135,6 +126,27 @@ body {
   animation: pulse 2s infinite;
 }
 
+.timer-text {
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--text-main);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -1px;
+}
+
+.mode-indicator {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.mode-indicator.work { color: var(--accent); }
+.mode-indicator.break { color: #4fc3f7; }
+
 .timer-circle.break.active {
   border-color: #4fc3f7;
   box-shadow: 0 0 30px rgba(79, 195, 247, 0.3);
@@ -151,14 +163,6 @@ body {
   0% { box-shadow: 0 0 0 0 rgba(79, 195, 247, 0.4); }
   70% { box-shadow: 0 0 0 20px rgba(79, 195, 247, 0); }
   100% { box-shadow: 0 0 0 0 rgba(79, 195, 247, 0); }
-}
-
-.timer-text {
-  font-size: 48px;
-  font-weight: 300;
-  color: var(--text-main);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -1px;
 }
 
 .subtitle {
@@ -248,8 +252,6 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
-.sessions-list li:last-child { border-bottom: none; }
-
 .session-number { 
   color: var(--accent); 
   font-weight: 800;
@@ -267,4 +269,134 @@ body {
 .session-time { 
   color: var(--text-muted); 
   font-size: 11px;
+}
+
+/* Level 3 Specifics */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+}
+
+.stat-value {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.stat-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.config-panel {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.config-group {
+  flex: 1;
+  text-align: left;
+}
+
+.config-group label {
+  display: block;
+  font-size: 9px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.config-group input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 8px;
+  color: var(--text-main);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.config-group input:focus {
+  border-color: var(--accent);
+}
+
+.config-group input:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.button-row.secondary-actions {
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
+.button-save {
+  width: 100%;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+  border: 1px solid var(--border-subtle);
+}
+
+.button-save:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent);
+}
+
+.progress-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 32px;
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.mode-break .progress-fill {
+  background: #4fc3f7;
+  box-shadow: 0 0 10px rgba(79, 195, 247, 0.3);
+}
+
+.sessions-list li.partial {
+  border-left: 2px solid var(--text-muted);
+  padding-left: 10px;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.sessions-list li.partial .session-type {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 10px;
 }

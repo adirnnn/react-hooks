@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import Level1 from './Level1'
 import Level2 from './Level2'
+import Level3 from './Level3'
 import './App.css'
 
 function App() {
-  const [currentLevel, setCurrentLevel] = useState(2);
+  const [currentLevel, setCurrentLevel] = useState(3);
 
   return (
     <div className="container">
@@ -21,11 +22,18 @@ function App() {
         >
           Level 2
         </button>
+        <button 
+          className={currentLevel === 3 ? 'active' : ''} 
+          onClick={() => setCurrentLevel(3)}
+        >
+          Level 3
+        </button>
       </div>
 
       <div className="view-port">
         {currentLevel === 1 && <Level1 />}
         {currentLevel === 2 && <Level2 />}
+        {currentLevel === 3 && <Level3 />}
       </div>
     </div>
   )
